@@ -24,7 +24,6 @@ data  = np.array(data)
 fig1 = go.Heatmap(x=X, y=X,z = data, type = "heatmap",colorscale='inferno')
 data = [fig1]
 fig1 = go.Figure(data = data)
-fig1.show()
 
 
 
@@ -47,7 +46,6 @@ fig2.update_layout(
         color="#7f7f7f"
     )
 )
-fig2.show()
 
 df['X'] = np.log(df["Population"])
 df[df['X'] == -inf] = 0
@@ -67,7 +65,6 @@ fig3.update_layout(
         color="#7f7f7f"
     )
 )
-fig3.show()
 
 df['X'] = np.log(df["Area"])
 df[df['X'] == -inf] = 0
@@ -87,7 +84,6 @@ fig4.update_layout(
         color="#7f7f7f"
     )
 )
-fig4.show()
 
 df['X'] = np.log(df["Air quality"])
 df[df['X'] == -inf] = 0
@@ -107,7 +103,6 @@ fig5.update_layout(
         color="#7f7f7f"
     )
 )
-fig5.show()
 
 df['X'] = np.log(df["Water accessibility"])
 df[df['X'] == -inf] = 0
@@ -127,7 +122,6 @@ fig6.update_layout(
         color="#7f7f7f"
     )
 )
-fig6.show()
 
 df['X'] = np.log(df["Confirmed"])
 df[df['X'] == -inf] = 0
@@ -147,7 +141,6 @@ fig7.update_layout(
         color="#7f7f7f"
     )
 )
-fig7.show()
 
 df['X'] = np.log(df["Active"])
 df[df['X'] == -inf] = 0
@@ -167,7 +160,6 @@ fig8.update_layout(
         color="#7f7f7f"
     )
 )
-fig8.show()
 
 df['X'] = (df["Population"])
 df[df['X'] == -inf] = 0
@@ -187,7 +179,6 @@ fig9.update_layout(
         color="#7f7f7f"
     )
 )
-fig9.show()
 
 df['X'] = np.log(df["Density"])
 df[df['X'] == -inf] = 0
@@ -207,7 +198,6 @@ fig10.update_layout(
         color="#7f7f7f"
     )
 )
-fig10.show()
 
 df['X'] = (df["Area"])
 df[df['X'] == -inf] = 0
@@ -227,7 +217,6 @@ fig11.update_layout(
         color="#7f7f7f"
     )
 )
-fig11.show()
 
 df['X'] = (df["Air quality"])
 df[df['X'] == -inf] = 0
@@ -247,7 +236,6 @@ fig12.update_layout(
         color="#7f7f7f"
     )
 )
-fig12.show()
 
 df['X'] = (df["Water accessibility"])
 df[df['X'] == -inf] = 0
@@ -267,7 +255,6 @@ fig13.update_layout(
         color="#7f7f7f"
     )
 )
-fig13.show()
 
 df['X'] = np.log(df["Active"])
 df[df['X'] == -inf] = 0
@@ -287,7 +274,6 @@ fig14.update_layout(
         color="#7f7f7f"
     )
 )
-fig14.show()
 
 df['X'] = (df["Growth Ratio"])
 df[df['X'] == -inf] = 0
@@ -307,7 +293,6 @@ fig15.update_layout(
         color="#7f7f7f"
     )
 )
-fig15.show()
 
 df['X'] = (df["Water accessibility"])
 df[df['X'] == -inf] = 0
@@ -327,7 +312,6 @@ fig16.update_layout(
         color="#7f7f7f"
     )
 )
-fig16.show()
 
 df['X'] = (df["Air quality"])
 df[df['X'] == -inf] = 0
@@ -347,7 +331,6 @@ fig17.update_layout(
         color="#7f7f7f"
     )
 )
-fig17.show()
 
 df['X'] = (df["Area"])
 df[df['X'] == -inf] = 0
@@ -367,7 +350,6 @@ fig18.update_layout(
         color="#7f7f7f"
     )
 )
-fig18.show()
 
 df['X'] = (df["Density"])
 df[df['X'] == -inf] = 0
@@ -387,7 +369,6 @@ fig19.update_layout(
         color="#7f7f7f"
     )
 )
-fig19.show()
 
 df['X'] = np.log(df["Density"])
 df[df['X'] == -inf] = 0
@@ -407,7 +388,6 @@ fig20.update_layout(
         color="#7f7f7f"
     )
 )
-fig20.show()
 
 df['X'] = (df["Population"])
 df[df['X'] == -inf] = 0
@@ -427,7 +407,7 @@ fig21.update_layout(
         color="#7f7f7f"
     )
 )
-fig21.show()
+
 
 df['X'] = np.log(df["Residential"])
 df[df['X'] == -inf] = 0
@@ -447,7 +427,6 @@ fig22.update_layout(
         color="#7f7f7f"
     )
 )
-fig22.show()
 
 from dash.dependencies import Input, Output
 
@@ -653,5 +632,7 @@ def display_content(value=21):
 def display_content(value=22):
     if(value==22):
      return html.Div([dcc.Graph(figure = fig22),html.P('This is a regression plot between log(residential mobility percentage) and log(active cases). This plot simply shows how staying at home affects the trend in the rise of active cases.')])
+
+
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=5000)

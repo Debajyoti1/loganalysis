@@ -7,12 +7,14 @@ import pandas as pd
 from numpy import inf
 import plotly.graph_objects as go
 import plotly.express as px
-df = pd.read_csv("dataset2.csv")
 from dash.dependencies import Input, Output
+import statsmodels.api as sm
+
+df = pd.read_csv("dataset2.csv")
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
 server = app.server
 
 X = df.columns[2:-1]
@@ -24,7 +26,7 @@ data = [fig1]
 fig1 = go.Figure(data = data)
 fig1.show()
 
-import statsmodels.api as sm
+
 
 df['X'] = np.log(df["Density"])
 df[df['X'] == -inf] = 0

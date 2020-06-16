@@ -11,7 +11,8 @@ from dash.dependencies import Input, Output
 import statsmodels.api as sm
 
 df = pd.read_csv("dataset2.csv")
-
+df.head()
+np.seterr(divide = 'ignore')
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
